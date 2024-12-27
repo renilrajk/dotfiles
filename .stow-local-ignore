@@ -4,6 +4,7 @@
 
 \.stowrc
 \.stow-local-ignore
+\setup.sh
 
 ^/README.*
 ^/LICENSE.*

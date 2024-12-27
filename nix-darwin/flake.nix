@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs =
@@ -13,7 +12,6 @@
       self,
       nixpkgs,
       nix-darwin,
-      ghostty,
     }:
     let
       configuration =
@@ -56,7 +54,6 @@
               pkgs.go-task
               pkgs.imgpkg
               pkgs.inetutils
-              pkgs.insomnia
               pkgs.jdk23
               pkgs.jq
               pkgs.just
@@ -112,15 +109,13 @@
               pkgs.warp-terminal
               pkgs.wezterm
               pkgs.wget
-              pkga.yazi
+              pkgs.yazi
               pkgs.yq-go
               pkgs.ytt
               pkgs.zoxide
-              pkgs.zed-editor
               pkgs.zsh
               pkgs.zsh-autosuggestions
               pkgs.zsh-syntax-highlighting
-              ghostty.packages.x86_64-linux.default
             ];
           };
 
