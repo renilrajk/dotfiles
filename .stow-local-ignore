@@ -1,0 +1,10 @@
+\.git
+\.gitignore
+\.gitmodules
+
+\.stowrc
+\.stow-local-ignore
+
+^/README.*
+^/LICENSE.*
+^/COPYING
