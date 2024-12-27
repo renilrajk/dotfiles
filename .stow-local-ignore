@@ -2,9 +2,10 @@
 \.gitignore
 \.gitmodules
 
-\.stowrc
-\.stow-local-ignore
-\setup.sh
+.stowrc
+.stow-local-ignore
+setup.sh
+justfile
 
 ^/README.*
 ^/LICENSE.*

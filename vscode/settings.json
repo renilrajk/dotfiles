@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Alt Catppuccin Mocha",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontFamily": "\"JetBrainsMono Nerd Font\""
+}

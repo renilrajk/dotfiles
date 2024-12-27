@@ -1,10 +1,11 @@
 background-blur-radius = 20
+font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 font-thicken = true
+fullscreen = true
 keybind = global:cmd+/=toggle_quick_terminal
 macos-option-as-alt = true
 mouse-hide-while-typing = true
 theme = catppuccin-mocha
-window-decoration = false
-window-padding-x = 4
-font-family = "JetBrainsMono Nerd Font"
+window-decoration = true
+window-padding-x = 5
