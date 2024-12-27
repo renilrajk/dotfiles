@@ -6,6 +6,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # aliases
 alias cat="bat"
 alias ls="eza"
+alias ll="ls -l"
 alias nxl='nx affected:lint --fix --parallel=6 --maxWarnings=0'
 alias nxt='nx affected:test --parallel=6'
 alias nxb='nx affected:build --parallel=6'
@@ -48,6 +49,9 @@ source <(kubectl completion zsh)
 
 # kubebuilder
 source <(kubebuilder completion zsh)
+
+# docker
+source <(docker completion zsh)
 
 # Nix!
 export NIX_CONF_DIR=$XDG_CONFIG_HOME/nix

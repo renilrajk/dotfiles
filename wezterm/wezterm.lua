@@ -6,7 +6,7 @@ local mux = wezterm.mux
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.font_size = 14s
+config.font_size = 14
 config.font = wezterm.font_with_fallback({
 	{ family = "JetBrainsMono Nerd Font", scale = 1 },
 })
@@ -19,7 +19,7 @@ config.color_scheme = "Catppuccin Mocha" --or Mocha, Macchiato, Frappe, Latte" -
 config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
-config.default_cwd = "/Users/krenil/vmware/projects/moneta"
+-- config.default_cwd = "$HOME/VMware/dsm"
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {
