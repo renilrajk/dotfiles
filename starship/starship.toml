@@ -85,14 +85,15 @@ $character"""
 
 # Inserts a blank line between shell prompts
 add_newline = true
+command_timeout = 1000
 
 [aws]
 disabled = true
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[❯](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-error_symbol = '[❯](bold red)'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[➜](bold red)'
 
 [docker_context]
 disabled = true
@@ -121,7 +122,7 @@ format = '[${symbol}(${version} )]($style) '
 [kubernetes]
 disabled = false
 symbol = '⎈ '
-format = '\[[$symbol]($style)[$context](bold red)[ ⛵ ]($style)[$namespace](bold red)\] '
+format = '[$symbol]($style)[$context](bold red)\($style)[$namespace](bold red) '
 
 [lua]
 symbol = " "

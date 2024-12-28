@@ -20,9 +20,6 @@
       configuration =
         { pkgs, config, ... }:
         {
-
-          nixpkgs.config.allowUnfree = true;
-
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment = {
@@ -49,6 +46,7 @@
               pkgs.gcc
               pkgs.git
               pkgs.git-extras
+              pkgs.glow
               pkgs.gnumake
               pkgs.gnused
               pkgs.go
@@ -117,6 +115,7 @@
               pkgs.ytt
               pkgs.zoxide
               pkgs.zsh
+              pkgs.zsh-autocomplete
               pkgs.zsh-autosuggestions
               pkgs.zsh-syntax-highlighting
             ];
@@ -126,26 +125,38 @@
             pkgs.nerd-fonts.jetbrains-mono
           ];
 
-          system.activationScripts.applications.text =
-            let
-              env = pkgs.buildEnv {
-                name = "system-applications";
-                paths = config.environment.systemPackages;
-                pathsToLink = "/Applications";
-              };
-            in
-            pkgs.lib.mkForce ''
-              # Set up applications.
-              echo "setting up /Applications..." >&2
-              rm -rf /Applications/Nix\ Apps
-              mkdir -p /Applications/Nix\ Apps
-              find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-              while read -r src; do
-                app_name=$(basename "$src")
-                echo "copying $src" >&2
-                ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-              done
-            '';
+          system = {
+            activationScripts.applications.text =
+              let
+                env = pkgs.buildEnv {
+                  name = "system-applications";
+                  paths = config.environment.systemPackages;
+                  pathsToLink = "/Applications";
+                };
+              in
+              pkgs.lib.mkForce ''
+                # Set up applications.
+                echo "setting up /Applications..." >&2
+                rm -rf /Applications/Nix\ Apps
+                mkdir -p /Applications/Nix\ Apps
+                find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+                while read -r src; do
+                  app_name=$(basename "$src")
+                  echo "copying $src" >&2
+                  ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+                done
+              '';
+            # Used for backwards compatibility, please read the changelog before changing.
+            # $ darwin-rebuild changelog
+            stateVersion = 4;
+            # Set Git commit hash for darwin-version.
+            configurationRevision = self.rev or self.dirtyRev or null;
+            # defaults
+            defaults = {
+              dock.autohide = true;
+              dock.mru-spaces = false;
+            };
+          };
 
           programs = {
             zsh = {
@@ -158,28 +169,45 @@
 
           users.users.krenil.shell = pkgs.zsh;
 
-          # Necessary for using flakes on this system.
-          nix.settings.experimental-features = "nix-command flakes";
-
+          services.nix-daemon.enable = true;
+          
+          nix = {
+            # Necessary for using flakes on this system.
+            settings.experimental-features = "nix-command flakes";
+            configureBuildUsers = true;
+            useDaemon = true;
+          };
           # Enable alternative shell support in nix-darwin.
           # programs.fish.enable = true;
 
-          # Set Git commit hash for darwin-version.
-          system.configurationRevision = self.rev or self.dirtyRev or null;
+          nixpkgs = {
+            config.allowUnfree = true;
+            # The platform the configuration will be used on.
+            hostPlatform = "aarch64-darwin";
+          };
 
-          # Used for backwards compatibility, please read the changelog before changing.
-          # $ darwin-rebuild changelog
-          system.stateVersion = 5;
+          security.pam.enableSudoTouchIdAuth = true;
 
-          # The platform the configuration will be used on.
-          nixpkgs.hostPlatform = "aarch64-darwin";
+          homebrew = {
+            enable = true;
+            casks = [
+              "ghostty"
+            ];
+            brews = [
+              "vault"
+            ];
+          };
         };
     in
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#CNQD6VNP9M
       darwinConfigurations."CNQD6VNP9M" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         modules = [ configuration ];
       };
+
+      # Expose the package set, including overlays, for convenience.
+      darwinPackages = self.darwinConfigurations."Omers-MacBook-Pro".pkgs;
     };
 }
