@@ -126,14 +126,13 @@
           ];
 
           system = {
-            activationScripts.applications.text =
-              let
-                env = pkgs.buildEnv {
-                  name = "system-applications";
-                  paths = config.environment.systemPackages;
-                  pathsToLink = "/Applications";
-                };
-              in
+            activationScripts.applications.text = let
+              env = pkgs.buildEnv {
+                name = "system-applications";
+                paths = config.environment.systemPackages;
+                pathsToLink = "/Applications";
+              };
+            in
               pkgs.lib.mkForce ''
                 # Set up applications.
                 echo "setting up /Applications..." >&2
@@ -162,7 +161,6 @@
             zsh = {
               enable = true;
               enableCompletion = true;
-              enableFzfCompletion = true;
               enableSyntaxHighlighting = true;
             };
           };
@@ -202,12 +200,12 @@
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#CNQD6VNP9M
-      darwinConfigurations."CNQD6VNP9M" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [ configuration ];
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."Omers-MacBook-Pro".pkgs;
+      darwinPackages = self.darwinConfigurations."default".pkgs;
     };
 }
