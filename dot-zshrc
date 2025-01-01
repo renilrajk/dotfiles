@@ -12,6 +12,8 @@ alias nxt='nx affected:test --parallel=6'
 alias nxb='nx affected:build --parallel=6'
 alias vi="nvim"
 alias vim="nvim"
+alias lg="lazygit"
+alias ld="lazydocker"
 
 # docker-aliases
 [ -f "$XDG_CONFIG_HOME/aliases/docker-aliases.zsh" ] && source "$XDG_CONFIG_HOME/aliases/docker-aliases.zsh"
