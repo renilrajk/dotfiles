@@ -1,3 +1,5 @@
 .DS_Store
 nushell/history.txt
 zed/prompts
+tmux/plugins
+*.log

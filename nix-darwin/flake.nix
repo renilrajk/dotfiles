@@ -117,9 +117,6 @@
               pkgs.zed-editor
               pkgs.zoxide
               pkgs.zsh
-              pkgs.zsh-autocomplete
-              pkgs.zsh-autosuggestions
-              pkgs.zsh-syntax-highlighting
             ];
           };
 
@@ -160,14 +157,14 @@
                 persistent-apps = [
                   "/Applications/zoom.us.app"
                   "/Users/krenil/Applications/Chrome Apps.localized/Google Chat.app"
-                  "/Applications/Nix Apps/Arc.app"
+                  "/run/current-system/Applications/Arc.app"
                   "/Applications/Zen Browser.app"
-                  "/Applications/Nix Apps/Wezterm.app"
+                  "/run/current-system/Applications/Wezterm.app"
                   "/Applications/Ghostty.app"
                   "/Users/krenil/Applications/GoLand.app"
-                  "/Applications/Nix Apps/Visual Studio Code.app"
-                  "/Applications/Nix Apps/Zed.app"
-                  "/Applications/Nix Apps/Obsidian.app"
+                  "/run/current-system/Applications/Visual Studio Code.app"
+                  "/run/current-system/Applications/Zed.app"
+                  "/run/current-system/Applications/Obsidian.app"
                   "/Applications/Insomnia.app"
                   "/Applications/Notion.app"
                   "/Applications/LICEcap.app"
@@ -178,8 +175,6 @@
 
           programs = {
             zsh = {
-              enable = true;
-              enableCompletion = true;
               enableSyntaxHighlighting = true;
             };
           };

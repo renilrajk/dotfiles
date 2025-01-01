@@ -55,9 +55,6 @@ source <(docker completion zsh)
 
 # Nix!
 export NIX_CONF_DIR=$XDG_CONFIG_HOME/nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
 
 # carapace
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional

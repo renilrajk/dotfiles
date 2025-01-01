@@ -19,6 +19,7 @@ config.color_scheme = "Catppuccin Mocha" --or Mocha, Macchiato, Frappe, Latte" -
 config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
+config.max_fps = 120
 -- config.default_cwd = "$HOME/VMware/dsm"
 
 config.front_end = "WebGpu"
@@ -30,12 +31,12 @@ config.inactive_pane_hsb = {
 }
 
 -- leader key
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 
 -- key bindings
 config.keys = {
-	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
-	{ key = "a", mods = "LEADER", action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }) },
+	-- Send "CTRL-Q" to the terminal when pressing CTRL-Q, CTRL-Q
+	{ key = "q", mods = "LEADER", action = wezterm.action.SendKey({ key = "q", mods = "CTRL" }) },
 	{ key = "|", mods = "LEADER|SHIFT ", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "-", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "h", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
