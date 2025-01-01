@@ -21,6 +21,8 @@ config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
 -- config.default_cwd = "$HOME/VMware/dsm"
 
+config.front_end = "WebGpu"
+
 -- Dim inactive panes
 config.inactive_pane_hsb = {
 	saturation = 0.9,

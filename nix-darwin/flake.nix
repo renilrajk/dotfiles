@@ -13,8 +13,8 @@
   outputs =
     inputs@{
       self,
-      nixpkgs,
       nix-darwin,
+      nixpkgs,
     }:
     let
       configuration =
@@ -29,6 +29,7 @@
             ];
             systemPackages = [
               pkgs.aerospace
+              pkgs.arc-browser
               pkgs.atuin
               pkgs.bash
               pkgs.bat
@@ -113,6 +114,7 @@
               pkgs.yazi
               pkgs.yq-go
               pkgs.ytt
+              pkgs.zed-editor
               pkgs.zoxide
               pkgs.zsh
               pkgs.zsh-autocomplete
@@ -152,8 +154,25 @@
             configurationRevision = self.rev or self.dirtyRev or null;
             # defaults
             defaults = {
-              dock.autohide = true;
-              dock.mru-spaces = false;
+              dock = {
+                autohide = true;
+                mru-spaces = false;
+                persistent-apps = [
+                  "/Applications/zoom.us.app"
+                  "/Users/krenil/Applications/Chrome Apps.localized/Google Chat.app"
+                  "/Applications/Nix Apps/Arc.app"
+                  "/Applications/Zen Browser.app"
+                  "/Applications/Nix Apps/Wezterm.app"
+                  "/Applications/Ghostty.app"
+                  "/Users/krenil/Applications/GoLand.app"
+                  "/Applications/Nix Apps/Visual Studio Code.app"
+                  "/Applications/Nix Apps/Zed.app"
+                  "/Applications/Nix Apps/Obsidian.app"
+                  "/Applications/Insomnia.app"
+                  "/Applications/Notion.app"
+                  "/Applications/LICEcap.app"
+                ];
+              };
             };
           };
 
