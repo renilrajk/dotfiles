@@ -38,7 +38,6 @@
               pkgs.curl
               pkgs.dblab
               pkgs.delve
-              pkgs.direnv
               pkgs.dive
               pkgs.duf
               pkgs.eza
@@ -77,6 +76,7 @@
               pkgs.lazydocker
               pkgs.lazygit
               pkgs.lua
+              pkgs.luaformatter
               pkgs.luajitPackages.luarocks
               pkgs.mariadb
               pkgs.minikube
@@ -84,6 +84,8 @@
               pkgs.mkalias
               pkgs.neovim
               pkgs.nixfmt-rfc-style
+              pkgs.nixpkgs-fmt
+              pkgs.nixpkgs-lint
               pkgs.nodejs_23
               pkgs.nushell
               pkgs.obsidian
@@ -101,6 +103,7 @@
               pkgs.ripgrep
               pkgs.rustup
               pkgs.shellcheck
+              pkgs.shellharden
               pkgs.shfmt
               pkgs.sqlite
               pkgs.sshpass
@@ -110,19 +113,19 @@
               pkgs.stow
               pkgs.terraform
               pkgs.tlrc
-              pkgs.tmux
               pkgs.tree
               pkgs.unixtools.watch
               pkgs.vendir
               pkgs.vscode
               pkgs.wezterm
               pkgs.wget
+              pkgs.yamlfmt
+              pkgs.yamllint
               pkgs.yazi
               pkgs.yq-go
               pkgs.ytt
               pkgs.zed-editor
               pkgs.zoxide
-              pkgs.zsh
             ];
             variables = {
               XDG_CONFIG_HOME = "$HOME/.config";
@@ -205,7 +208,18 @@
 
           programs = {
             zsh = {
+              enable = true;
               enableSyntaxHighlighting = true;
+            };
+            direnv = {
+              enable = true;
+            };
+            tmux = {
+              enable = true;
+              enableFzf = true;
+              enableMouse = true;
+              enableSensible = true;
+              enableVim = true;
             };
           };
 
@@ -228,11 +242,18 @@
 
           homebrew = {
             enable = true;
+            taps = [
+              "hashicorp/tap"
+              "carvel-dev/carvel"
+              "messense/macos-cross-toolchains"
+            ];
             casks = [
               "ghostty"
             ];
             brews = [
-              "vault"
+              "hashicorp/tap/vault"
+              "carvel-dev/carvel/kctrl"
+              "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
             ];
           };
         };
