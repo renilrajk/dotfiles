@@ -130,14 +130,10 @@
               LANG = "en_US.UTF-8";
               GOROOT = pkgs.go + "/share/go";
               GOPATH = "$HOME/go";
-              PATH = [
-                "$PATH"
-                "$GOPATH/bin"
-              ];
-              NIX_CONF_DIR = "$XDG_CONFIG_HOME/nix";
+              NIX_CONF_DIR = "$HOME/.config/nix";
               CARAPACE_BRIDGES = "zsh,fish,bash,inshellisense";
               FZF_DEFAULT_OP = "--extended";
-              STARSHIP_CONFIG = "$XDG_CONFIG_HOME/starship/starship.toml";
+              STARSHIP_CONFIG = "$HOME/.config/starship/starship.toml";
             };
             shellAliases = {
               cat = "bat";
@@ -148,6 +144,9 @@
               lg = "lazygit";
               ld = "lazydocker";
             };
+            systemPath = [
+              "$HOME/go/bin"
+            ];
           };
 
           fonts.packages = [
