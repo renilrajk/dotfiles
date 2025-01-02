@@ -220,6 +220,7 @@
               enableMouse = true;
               enableSensible = true;
               enableVim = true;
+              extraConfig = "source-file $HOME/.config/tmux/tmux.conf";
             };
           };
 
