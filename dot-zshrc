@@ -1,20 +1,3 @@
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export EDITOR=nvim
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# aliases
-alias cat="bat"
-alias ls="eza"
-alias ll="ls -l"
-alias nxl='nx affected:lint --fix --parallel=6 --maxWarnings=0'
-alias nxt='nx affected:test --parallel=6'
-alias nxb='nx affected:build --parallel=6'
-alias vi="nvim"
-alias vim="nvim"
-alias lg="lazygit"
-alias ld="lazydocker"
-
 # docker-aliases
 [ -f "$XDG_CONFIG_HOME/aliases/docker-aliases.zsh" ] && source "$XDG_CONFIG_HOME/aliases/docker-aliases.zsh"
 
@@ -26,18 +9,13 @@ alias ld="lazydocker"
 
 # go
 export GOPRIVATE="gitlab-vmw.devops.broadcom.net/*"
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # fzf
 [ -f "$HOME~/.fzf.zsh" ] && source "$HOME~/.fzf.zsh"
-export FZF_DEFAULT_OPS="--extended"
 eval "$(fzf --zsh)"
 
 # starship
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -55,11 +33,7 @@ source <(kubebuilder completion zsh)
 # docker
 source <(docker completion zsh)
 
-# Nix!
-export NIX_CONF_DIR=$XDG_CONFIG_HOME/nix
-
 # carapace
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 source <(carapace _carapace)
 

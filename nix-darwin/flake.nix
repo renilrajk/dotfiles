@@ -37,6 +37,7 @@
               pkgs.carapace
               pkgs.curl
               pkgs.dblab
+              pkgs.delve
               pkgs.direnv
               pkgs.dive
               pkgs.duf
@@ -51,6 +52,9 @@
               pkgs.gnumake
               pkgs.gnused
               pkgs.go
+              pkgs.golangci-lint
+              pkgs.gopls
+              pkgs.gotools
               pkgs.govc
               pkgs.go-migrate
               pkgs.go-task
@@ -90,6 +94,9 @@
               pkgs.popeye
               pkgs.postgresql
               pkgs.powershell
+              pkgs.pprof
+              pkgs.protobuf
+              pkgs.protoc-gen-go
               pkgs.raycast
               pkgs.ripgrep
               pkgs.rustup
@@ -108,7 +115,6 @@
               pkgs.unixtools.watch
               pkgs.vendir
               pkgs.vscode
-              pkgs.warp-terminal
               pkgs.wezterm
               pkgs.wget
               pkgs.yazi
@@ -118,6 +124,30 @@
               pkgs.zoxide
               pkgs.zsh
             ];
+            variables = {
+              XDG_CONFIG_HOME = "$HOME/.config";
+              EDITOR = "nvim";
+              LANG = "en_US.UTF-8";
+              GOROOT = pkgs.go + "/share/go";
+              GOPATH = "$HOME/go";
+              PATH = [
+                "$PATH"
+                "$GOPATH/bin"
+              ];
+              NIX_CONF_DIR = "$XDG_CONFIG_HOME/nix";
+              CARAPACE_BRIDGES = "zsh,fish,bash,inshellisense";
+              FZF_DEFAULT_OP = "--extended";
+              STARSHIP_CONFIG = "$XDG_CONFIG_HOME/starship/starship.toml";
+            };
+            shellAliases = {
+              cat = "bat";
+              ls = "eza";
+              ll = "ls -l";
+              vi = "nvim";
+              vim = "nvim";
+              lg = "lazygit";
+              ld = "lazydocker";
+            };
           };
 
           fonts.packages = [
@@ -125,13 +155,14 @@
           ];
 
           system = {
-            activationScripts.applications.text = let
-              env = pkgs.buildEnv {
-                name = "system-applications";
-                paths = config.environment.systemPackages;
-                pathsToLink = "/Applications";
-              };
-            in
+            activationScripts.applications.text =
+              let
+                env = pkgs.buildEnv {
+                  name = "system-applications";
+                  paths = config.environment.systemPackages;
+                  pathsToLink = "/Applications";
+                };
+              in
               pkgs.lib.mkForce ''
                 # Set up applications.
                 echo "setting up /Applications..." >&2
@@ -179,18 +210,14 @@
             };
           };
 
-          users.users.krenil.shell = pkgs.zsh;
-
           services.nix-daemon.enable = true;
-          
+
           nix = {
             # Necessary for using flakes on this system.
             settings.experimental-features = "nix-command flakes";
             configureBuildUsers = true;
             useDaemon = true;
           };
-          # Enable alternative shell support in nix-darwin.
-          # programs.fish.enable = true;
 
           nixpkgs = {
             config.allowUnfree = true;
