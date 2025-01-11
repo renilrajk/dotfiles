@@ -6,4 +6,10 @@
     "terminal.integrated.fontSize": 14,
     "editor.fontFamily": "\"JetBrainsMono Nerd Font\"",
     "cSpell.enabled": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
 }

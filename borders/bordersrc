@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Colors taken from tokyonight theme
+active="0xfff7768e"
+inactive="0xff7aa2f7"
+
+options=(
+	active_color="$active"
+	inactive_color="$inactive"
+	hidpi=on
+	style=round
+	width=10.0
+)
+
+borders "${options[@]}"

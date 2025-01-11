@@ -1,5 +1,6 @@
 .DS_Store
+*.log
 nushell/history.txt
 zed/prompts
 tmux/plugins
-*.log
+karabiner/automatic_backups

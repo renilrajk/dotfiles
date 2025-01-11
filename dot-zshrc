@@ -1,3 +1,34 @@
+# exports
+export XDG_CONFIG_HOME="$HOME/.config"
+export NIX_CONF_DIR="$XDG_CONFIG_HOME/nix"
+export EDITOR="nvim"
+export LANG="en_US.UTF-8"
+# export GOROOT=pkgs.go + "/share/go" - setup done in nix flakes as it need the nix package path
+export GOPATH="$HOME/go"
+export GOPRIVATE="gitlab-vmw.devops.broadcom.net/*"
+export CARAPACE_BRIDGES="zsh,fish,bash,inshellisense"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export FZF_DEFAULT_OP="--extended"
+export FZF_CTRL_R_OPTS="--bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --color header:italic --header 'Press CTRL-Y to copy command into clipboard'"
+export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target --preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)' --no-height"
+export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'tree -C {}' --no-height"
+
+# aliases
+alias cat="bat"
+alias ls="eza --icons=always"
+alias ll="eza -lg --icons=always"
+alias la="eza -lag --icons=always"
+alias lt="eza -lTg --icons=always"
+alias lta="eza -lTag --icons=always"
+alias tree="eza -Tag --icons=always"
+alias vi="nvim"
+alias vim="nvim"
+alias lg="lazygit"
+alias ld="lazydocker"
+
+# case-insensitive path navigation
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} r:|[._-]=* r:|=*' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}'
+
 # docker-aliases
 [ -f "$XDG_CONFIG_HOME/aliases/docker-aliases.zsh" ] && source "$XDG_CONFIG_HOME/aliases/docker-aliases.zsh"
 
@@ -7,38 +38,55 @@
 # kube-aliases
 [ -f "$XDG_CONFIG_HOME/aliases/kube-aliases.zsh" ] && source "$XDG_CONFIG_HOME/aliases/kube-aliases.zsh"
 
-# go
-export GOPRIVATE="gitlab-vmw.devops.broadcom.net/*"
-
 # fzf
-[ -f "$HOME~/.fzf.zsh" ] && source "$HOME~/.fzf.zsh"
-eval "$(fzf --zsh)"
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
 
 # starship
-eval "$(starship init zsh)"
+if [ -n "${commands[starship]}" ]; then
+  eval "$(starship init zsh)"
+fi
 
 # zoxide
-eval "$(zoxide init zsh)"
+if [ -n "${commands[zoxide]}" ]; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
 
 # autin
-[ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
+if [ -n "${commands[atuin]}" ]; then
+  eval "$(atuin init zsh)"
+fi
 
 # kubectl
-source <(kubectl completion zsh)
+if [ -n "${commands[kubectl]}" ]; then
+  source <(kubectl completion zsh)
+fi
 
 # kubebuilder
-source <(kubebuilder completion zsh)
+if [ -n "${commands[kubebuilder]}" ]; then
+  source <(kubebuilder completion zsh)
+fi
 
 # docker
-source <(docker completion zsh)
+if [ -n "${commands[docker]}" ]; then
+  source <(docker completion zsh)
+fi
 
 # carapace
-zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
-source <(carapace _carapace)
+if [ -n "${commands[carapace]}" ]; then
+  zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+  source <(carapace _carapace)
+fi
 
 # direnv
-eval "$(direnv hook zsh)"
+if [ -n "${commands[direnv]}" ]; then
+  eval "$(direnv hook zsh)"
+fi
 
 # brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -n "${commands[starship]}" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
