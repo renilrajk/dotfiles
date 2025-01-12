@@ -255,7 +255,7 @@
                   };
                 };
                 jankyborders = {
-                  path = [ pkgs.sketchybar ] ++ [ config.environment.systemPath ];
+                  path = [ pkgs.jankyborders ] ++ [ config.environment.systemPath ];
                   serviceConfig = {
                     ProgramArguments = [ "${pkgs.jankyborders}/bin/borders" ];
                     KeepAlive = true;
