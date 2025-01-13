@@ -1,7 +1,7 @@
 background-blur-radius = 20
 font-family = "JetBrainsMono Nerd Font"
 font-size = 14
-font-thicken = false
+font-thicken = true 
 fullscreen = false
 keybind = global:cmd+/=toggle_quick_terminal
 macos-option-as-alt = true

@@ -45,11 +45,14 @@
           environment.systemPackages = [
             pkgs.arc-browser
             pkgs.aerospace
+            pkgs.atac
             pkgs.atuin
             pkgs.bash
             pkgs.bat
             pkgs.bazelisk
+            pkgs.btop
             pkgs.carapace
+            pkgs.ctop
             pkgs.curl
             pkgs.dblab
             pkgs.delve
@@ -61,6 +64,7 @@
             pkgs.fzf
             pkgs.gcc
             pkgs.git
+            pkgs.gitui
             pkgs.git-extras
             pkgs.glow
             pkgs.gnumake
@@ -72,6 +76,8 @@
             pkgs.govc
             pkgs.go-migrate
             pkgs.go-task
+            pkgs.gping
+            pkgs.httpie
             pkgs.imgpkg
             pkgs.inetutils
             pkgs.jankyborders
@@ -79,17 +85,21 @@
             pkgs.jetbrains.goland
             pkgs.jq
             pkgs.just
+            pkgs.k6
             pkgs.k9s
             pkgs.kapp
             # pkgs.karabiner-elements
             pkgs.kbld
+            pkgs.kdash
             pkgs.kind
             pkgs.krew
+            pkgs.ktop
             pkgs.kubebuilder
             pkgs.kubeconform
             pkgs.kubectl
             pkgs.kubectx
             pkgs.kubernetes-helm
+            pkgs.kubescape
             pkgs.kustomize
             pkgs.lazydocker
             pkgs.lazygit
@@ -119,6 +129,7 @@
             pkgs.protoc-gen-go
             pkgs.raycast
             pkgs.ripgrep
+            pkgs.rsync
             pkgs.rustup
             pkgs.sd
             pkgs.shellcheck
@@ -135,6 +146,7 @@
             pkgs.tlrc
             pkgs.tree
             pkgs.unixtools.watch
+            pkgs.vegeta
             pkgs.vendir
             pkgs.vscode
             pkgs.wezterm
@@ -145,6 +157,8 @@
             pkgs.yq-go
             pkgs.ytt
             pkgs.zed-editor
+            pkgs.zellij
+            pkgs.zig
             pkgs.zoxide
             pkgs.zsh-autocomplete
           ];
