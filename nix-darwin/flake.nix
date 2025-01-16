@@ -55,6 +55,7 @@
             pkgs.ctop
             pkgs.curl
             pkgs.dblab
+            pkgs.delta
             pkgs.delve
             pkgs.dive
             pkgs.duf

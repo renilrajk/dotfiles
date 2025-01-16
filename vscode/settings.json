@@ -10,6 +10,9 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "[lua]": {
+        "editor.defaultFormatter": "sumneko.lua"
+    },
+    "security.promptForLocalFileProtocolHandling": false,
 }
