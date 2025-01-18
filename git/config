@@ -1,0 +1,53 @@
+[include]
+	path = "$HOME/.local/.gitconfig"
+[alias]
+	clone-worktrees = "!sh $XDG_CONFIG_HOME/scripts/git-clone-bare-worktrees.sh"
+[core]
+	pager = delta
+	editor = vim
+[delta]
+	dark = true
+	features = decorations
+	hyperlinks = true
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+	line-numbers = true
+	line-numbers-left-format = {nm:>4}│
+	line-numbers-left-style = black
+	line-numbers-minus-style = black
+	line-numbers-plus-style = black
+	line-numbers-right-format = {np:>4}│
+	line-numbers-right-style = black
+	line-numbers-zero-style = black
+	minus-emph-style = "#e78284" bold ul
+	minus-empty-line-marker-style = omit
+	minus-style = red 
+	navigate = true
+	plus-emph-style = "#81c8be" bold ul
+	plus-empty-line-marker-style = omit
+	plus-style = green 
+	side-by-side = true
+	syntax-theme = "Catppuccin Mocha"
+	true-color = always
+	zero-style = black
+[delta "decorations"]
+	commit-decoration-style = none
+	file-decoration-style = none
+	file-style = bold "#cba6f7" ul
+	hunk-header-decoration-style = black box
+	hunk-header-line-number-style = black
+	hunk-header-style = "#f5e0dc"
+[diff]
+	colorMoved = default
+[difftool]
+	prompt = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictstyle = zdiff3
+[pull]
+	rebase = true

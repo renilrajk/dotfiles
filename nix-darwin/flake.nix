@@ -78,6 +78,7 @@
             pkgs.go-migrate
             pkgs.go-task
             pkgs.gping
+            pkgs.helix
             pkgs.httpie
             pkgs.imgpkg
             pkgs.inetutils
