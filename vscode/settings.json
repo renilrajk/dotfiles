@@ -1,18 +1,22 @@
 {
-    "workbench.colorTheme": "Alt Catppuccin Mocha",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontSize": 14,
-    "debug.console.fontSize": 14,
-    "terminal.integrated.fontSize": 14,
+    "editor.fontSize": 15,
+    "debug.console.fontSize": 15,
+    "terminal.integrated.fontSize": 15,
     "editor.fontFamily": "\"JetBrainsMono Nerd Font\"",
     "cSpell.enabled": false,
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[lua]": {
         "editor.defaultFormatter": "sumneko.lua"
     },
-    "security.promptForLocalFileProtocolHandling": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "security.promptForLocalFileProtocolHandling": false
 }

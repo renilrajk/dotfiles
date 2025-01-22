@@ -60,6 +60,6 @@ return {
   -- load theme
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "catppuccin" },
+    opts = { colorscheme = "catppuccin-mocha" },
   },
 }

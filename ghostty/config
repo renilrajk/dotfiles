@@ -1,6 +1,6 @@
 background-blur-radius = 20
 font-family = "JetBrainsMono Nerd Font"
-font-size = 14
+font-size = 15
 font-thicken = true 
 fullscreen = false
 keybind = global:cmd+/=toggle_quick_terminal

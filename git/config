@@ -1,5 +1,5 @@
 [include]
-	path = "$HOME/.local/.gitconfig"
+	path = "~/.local/.gitconfig"
 [alias]
 	clone-worktrees = "!sh $XDG_CONFIG_HOME/scripts/git-clone-bare-worktrees.sh"
 [core]

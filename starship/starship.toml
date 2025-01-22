@@ -95,6 +95,9 @@ disabled = true
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = '[➜](bold red)'
 
+[directory]
+truncation_length = 5
+
 [docker_context]
 disabled = true
 symbol = '🐳 '
