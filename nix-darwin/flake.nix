@@ -129,6 +129,7 @@
             pkgs.pprof
             pkgs.protobuf
             pkgs.protoc-gen-go
+            pkgs.rainfrog
             pkgs.raycast
             pkgs.ripgrep
             pkgs.rsync
@@ -148,6 +149,7 @@
             pkgs.tlrc
             pkgs.tree
             pkgs.unixtools.watch
+            pkgs.uv
             pkgs.vegeta
             pkgs.vendir
             pkgs.vscode

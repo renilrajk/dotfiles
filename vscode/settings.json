@@ -1,9 +1,9 @@
 {
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontSize": 15,
-    "debug.console.fontSize": 15,
-    "terminal.integrated.fontSize": 15,
+    "editor.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
     "editor.fontFamily": "\"JetBrainsMono Nerd Font\"",
     "cSpell.enabled": false,
     "[json]": {
