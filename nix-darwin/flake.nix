@@ -236,14 +236,15 @@
           ];
           homebrew.casks = [
             "ghostty"
+            "homerow"
             "insomnia"
+            "karabiner-elements"
             "licecap"
             "notion"
-            "karabiner-elements"
           ];
           homebrew.brews = [
-            "hashicorp/tap/vault"
             "carvel-dev/carvel/kctrl"
+            "hashicorp/tap/vault"
             "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
           ];
 
