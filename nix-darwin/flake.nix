@@ -131,6 +131,7 @@
             pkgs.protoc-gen-go
             pkgs.rainfrog
             pkgs.raycast
+            pkgs.readline
             pkgs.ripgrep
             pkgs.rsync
             pkgs.rustup
@@ -241,6 +242,7 @@
             "karabiner-elements"
             "licecap"
             "notion"
+            "todoist"
           ];
           homebrew.brews = [
             "carvel-dev/carvel/kctrl"

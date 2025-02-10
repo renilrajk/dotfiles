@@ -19,8 +19,7 @@
                       "name": "hyper",
                       "value": 1
                     }
-                  },
-                  { "key_code": "delete_forward" }
+                  }
                 ],
                 "to_after_key_up": [
                   {
@@ -30,6 +29,7 @@
                     }
                   }
                 ],
+                "to_if_alone": [{ "key_code": "delete_forward" }],
                 "type": "basic"
               }
             ]
@@ -110,7 +110,11 @@
                   "key_code": "spacebar",
                   "modifiers": { "optional": ["any"] }
                 },
-                "to": [{ "shell_command": "open raycast://extensions/stellate/mxstbr-commands/create-notion-todo" }],
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
+                  }
+                ],
                 "type": "basic"
               }
             ]
@@ -1032,7 +1036,11 @@
                   "key_code": "l",
                   "modifiers": { "optional": ["any"] }
                 },
-                "to": [{ "shell_command": "open raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink" }],
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"
+                  }
+                ],
                 "type": "basic"
               },
               {
@@ -1048,7 +1056,11 @@
                   "key_code": "e",
                   "modifiers": { "optional": ["any"] }
                 },
-                "to": [{ "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols" }],
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+                  }
+                ],
                 "type": "basic"
               },
               {
@@ -1064,7 +1076,11 @@
                   "key_code": "h",
                   "modifiers": { "optional": ["any"] }
                 },
-                "to": [{ "shell_command": "open raycast://extensions/raycast/clipboard-history/clipboard-history" }],
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/clipboard-history/clipboard-history"
+                  }
+                ],
                 "type": "basic"
               }
             ]
