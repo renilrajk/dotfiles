@@ -19,5 +19,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "security.promptForLocalFileProtocolHandling": false,
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "go.toolsManagement.autoUpdate": true
 }

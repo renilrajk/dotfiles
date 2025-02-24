@@ -45,6 +45,7 @@
           environment.systemPackages = [
             pkgs.arc-browser
             pkgs.aerospace
+            pkgs.ast-grep
             pkgs.atac
             pkgs.atuin
             pkgs.bash
@@ -78,6 +79,7 @@
             pkgs.go-migrate
             pkgs.go-task
             pkgs.gping
+            pkgs.graphviz
             pkgs.helix
             pkgs.httpie
             pkgs.imgpkg
@@ -122,6 +124,8 @@
             pkgs.openssl
             pkgs.openldap
             pkgs.oras
+            pkgs.p7zip
+            pkgs.packer
             pkgs.podman
             pkgs.popeye
             pkgs.postgresql
@@ -129,6 +133,7 @@
             pkgs.pprof
             pkgs.protobuf
             pkgs.protoc-gen-go
+            pkgs.qemu
             pkgs.rainfrog
             pkgs.raycast
             pkgs.readline
